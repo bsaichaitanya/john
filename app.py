@@ -6,7 +6,7 @@ import pandas as pd
 import json
 import os
 
-from flask import Flask
+from flask import Flask , render_template
 from flask import request
 from flask import make_response
 
@@ -81,6 +81,11 @@ def kids():
     r = make_response(res)
     r.headers['Content-Type'] = 'application/json'
     return r
+
+@app.route('/')
+def index():
+   return render_template(‘hello.html’)
+
 	
 
 if __name__ == '__main__':
